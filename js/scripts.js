@@ -21,10 +21,37 @@ Movie.prototype.getPrice = function () {
 
   } else if (this.title === "movie2") {
     this.price += 4;
+    if ((this.time === "time1") || (this.time === "time2")){
+      this.price -= 1;
+      if ((this.date === "day1") || (this.date === "day2") || (this.date === "day3") || (this.date === "day4")){
+        this.price -=1
+        if ((this.age <= 12) || this.age >= 50){
+          this.price -= 1;
+        }
+      }
+    }
   } else if (this.title === "movie3") {
     this.price += 3;
+    if ((this.time === "time1") || (this.time === "time2")){
+      this.price -= 1;
+      if ((this.date === "day1") || (this.date === "day2") || (this.date === "day3") || (this.date === "day4")){
+        this.price -=1
+        if ((this.age <= 12) || this.age >= 50){
+          this.price -= 1;
+        }
+      }
+    }
   } else {
     this.price += 2;
+    if ((this.time === "time1") || (this.time === "time2")){
+      this.price -= 1;
+      if ((this.date === "day1") || (this.date === "day2") || (this.date === "day3") || (this.date === "day4")){
+        this.price -=1
+        if ((this.age <= 12) || this.age >= 50){
+          this.price -= 1;
+        }
+      }
+    }
   }
 }
 
@@ -40,10 +67,11 @@ $(document).ready(function() {
 
   var ticketPrice = new Movie (title, time, date, age);
 
-ticketPrice.getPrice();
-alert(ticketPrice.price)
+  ticketPrice.getPrice();
+  var result = ticketPrice.price
+  $("div#ticket-price").show();
+  $("div#ticket-price").append("$" + result);
 
-  // Movie.price();
 
 
 
